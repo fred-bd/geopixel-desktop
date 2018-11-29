@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.terralib.org/schemas/af"
+             xsd:schemaLocation="http://www.terralib.org/schemas/af ../../../terralib5/share/terralib/schemas/terralib/qt/af/config.xsd"
+             version="5.0.0"
+             release="2011-01-01">
+  <Organization>Geopixel</Organization>
+  <Name>geopx-desktop</Name>
+  <Title>Geopixel Desktop</Title>
+  <ProjectExtension>geopx</ProjectExtension>
+  <IconName>share/geopixeldesktop/images/png/geopixeldesktop-icon.png</IconName>
+  <HelpFile xlink:href="share/geopixeldesktop/help/help.qhc"/>
+  <Plugins xlink:href="share/geopixeldesktop/plugins/geopixeldesktop_plugins.json"/>
+  <IconThemeInfo>
+    <BaseDirectory xlink:href="share/terralib/icons"/>
+    <DefaultTheme>terralib</DefaultTheme>
+  </IconThemeInfo>
+  <ToolBarDefaultIconSize>24</ToolBarDefaultIconSize>
+  <DefaultSRID>0</DefaultSRID>
+  <DefaultSelectionColor>#00FF00</DefaultSelectionColor>
+  <AboutDialogLogo xlink:href="share/geopixeldesktop/images/png/geopixeldesktop-icon.png"/>
+  <TerraLibLogo xlink:href="share/geopixeldesktop/images/png/terralib-globe.png"/>
+</Application>

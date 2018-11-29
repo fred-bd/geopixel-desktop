@@ -1,0 +1,32 @@
+This is the Geopixel Desktop version 1.0
+====================================================
+
+Geopixel Desktop is a GIS for *******.
+
+Documents:
+----------
+
+BUILD-INSTRUCTIONS  Notes on how to compile and install Geopixel Desktop in some platforms.
+
+COPYING             Licence statement in plain txt format.
+
+COPYING.html        Licence statement in HTML format.
+
+Directories:
+------------
+
+build       Contains the CMake scripts with commands, macros and functions 
+			used to build the environment for compiling libraries and executables
+			in different platforms using the CMake tool.
+               
+src         Contains the source code of Geopixel Desktop.
+            In the root of each subdir there is a file called
+            README.txt with notes about each module.
+
+Bug reporting:
+------------------------------------
+
+Any problems encountered with Geopixel Desktop should be reported to ******.
+
+                   @-Geopixel Team-@
+                         <EMAIL>

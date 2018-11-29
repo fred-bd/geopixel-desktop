@@ -1,0 +1,37 @@
+/*!
+  \file geopx-desktop/src/GeopixelDesktop_Config.h
+
+  \brief System configuration macros.
+*/
+
+#ifndef __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_CONFIG_H__
+#define __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_CONFIG_H__
+
+//! Image to be showed on splash screen
+#define GEOPIXELDESKTOP_SPLASH_SCREEN_PIXMAP "share/geopixeldesktop/images/png/geopixeldesktop-splashscreen.png"
+
+//! Image to be showed as tamz icon
+#define GEOPIXELDESKTOP_LOGO_ICON "share/geopixeldesktop/images/png/geopixeldesktop-icon.png"
+
+//! Image to be showed as tamz logo
+#define GEOPIXELDESKTOP_LOGO_PIXMAP "@GEOPIXELDESKTOP_LOGO@"
+
+//! Image to be showed as tamz logo
+#define GEOPIXELDESKTOP_LARGE_LOGO_PIXMAP "@GEOPIXELDESKTOP_LARGE_LOGO@"
+
+//! Image to be showed as terralib logo
+#define GEOPIXELDESKTOP_TE_LOGO_PIXMAP "@GEOPIXELDESKTOP_TE_LOGO@"
+
+//! Geopixel resource file
+#define GEOPIXELDESKTOP_RESOURCE_FILE "@GEOPIXELDESKTOP_RESOURCE_FILE@"
+
+#define GEOPIXELDESKTOP_SOURCE_PATH "@GEOPIXELDESKTOP_ABSOLUTE_ROOT_DIR@"
+
+#define GEOPIXELDESKTOP_BINARY_DIR "@CMAKE_BINARY_DIR@"
+
+#define GEOPIXELDESKTOP_CURRENT_BINARY_DIR "@CMAKE_CURRENT_BINARY_DIR@"
+
+//! Geopixel Build Option
+#define GEOPIXELDESKTOP_INTERNAL_BUILD "@GEOPIXELDESKTOP_INTERNAL_BUILD@"
+
+#endif // __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_CONFIG_H__

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QHelpCollectionProject version="1.0">
+    <assistant>
+      <title>Geopixel Desktop Help</title>
+      <cacheDirectory>Geopixel/qhelp_cache</cacheDirectory>
+      <startPage>qthelp://geopixel.geopixeldesktop/doc/geopixeldesktop/frontpage.html</startPage> 
+      <currentFilter>help</currentFilter>
+      <applicationIcon>geopixeldesktop-icon.png</applicationIcon>
+      <enableFilterFunctionality>false</enableFilterFunctionality>
+      <enableDocumentationManager>false</enableDocumentationManager>
+      <enableAddressBar visible="true">false</enableAddressBar>
+      <aboutMenuText>
+         <text>About Geopixel Desktop... </text>
+         <text language="pt">Sobre o Geopixel Desktop ...</text>
+      </aboutMenuText>
+      <aboutDialog>
+         <file>about.txt</file>
+         <file language="pt">sobre.txt</file>
+         <icon>geopixeldesktop-icon.png</icon>
+      </aboutDialog>
+    </assistant>
+    <docFiles>
+      <generate>
+        <file>
+          <input>geopixeldesktop.qhp</input>
+          <output>geopixeldesktop.qch</output>
+        </file>
+      </generate>
+      <register>
+        <file>geopixeldesktop.qch</file>
+      </register>
+    </docFiles>
+</QHelpCollectionProject>

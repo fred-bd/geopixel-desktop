@@ -1,0 +1,114 @@
+set(CPACK_PACKAGE_NAME "GeopixelDesktop")
+set(CPACK_PACKAGE_VERSION @GEOPIXELDESKTOP_VERSION_STRING@)
+set(CPACK_PACKAGE_VENDOR "Geopixel")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Geopixel Desktop Application")
+set(CPACK_PACKAGE_VERSION_MAJOR @GEOPIXELDESKTOP_VERSION_MAJOR@)
+set(CPACK_PACKAGE_VERSION_MINOR @GEOPIXELDESKTOP_VERSION_MINOR@)
+set(CPACK_PACKAGE_VERSION_PATCH @GEOPIXELDESKTOP_VERSION_PATCH@)
+
+set(CPACK_RESOURCE_FILE_LICENSE @CMAKE_BINARY_DIR@/COPYING.txt)
+
+#
+# getting some variables from CMake
+#
+set(MSVC @MSVC@)
+set(CMAKE_CL_64 @CMAKE_CL_64@)
+set(APPLE @APPLE@)
+set(UNIX @UNIX@)
+
+#
+# determining the binary package name depending on toolset used in the build
+#
+if(NOT DEFINED CPACK_SOURCE_PACKAGE_FILE_NAME)
+  if(MSVC)
+    if(CMAKE_CL_64)
+      set(CPACK_PACKAGE_FILE_NAME "Geopixel Desktop-@GEOPIXELDESKTOP_VERSION_STRING@-win64")
+    else()
+      set(CPACK_PACKAGE_FILE_NAME "Geopixel Desktop-@GEOPIXELDESKTOP_VERSION_STRING@-win32")
+	endif()
+  else()
+    message(FATAL_ERROR "GeopixelDesktop ERROR: unknown platform for generating install package.")
+  endif()
+else()
+  set(CPACK_PACKAGE_FILE_NAME "Geopixel Desktop-@GEOPIXELDESKTOP_VERSION_STRING@-src")
+endif()
+
+
+#
+# specific configuration for NSIS package generator
+#
+if(CPACK_GENERATOR MATCHES "NSIS")
+  set(CPACK_NSIS_INSTALLED_ICON_NAME @GEOPIXELDESKTOP_ABSOLUTE_ROOT_DIR@/share/geopixeldesktop/images/ico\\\\geopixel-logo.ico)
+  
+  set(CPACK_PACKAGE_ICON @GEOPIXELDESKTOP_ABSOLUTE_ROOT_DIR@/share/geopixeldesktop/images/bmp\\\\geopixel-horizontal.bmp)
+  
+  set(CPACK_NSIS_INSTALLER_MUI_ICON_CODE "
+      !define MUI_WELCOMEFINISHPAGE_BITMAP \"@GEOPIXELDESKTOP_ABSOLUTE_ROOT_DIR@/share/geopixeldesktop/images/bmp\\\\geopixel-vertical.bmp\" 
+      !define MUI_ICON \"@GEOPIXELDESKTOP_ABSOLUTE_ROOT_DIR@/share/geopixeldesktop/images/ico\\\\geopixel-logo.ico\"
+      !define MUI_UNICON \"@GEOPIXELDESKTOP_ABSOLUTE_ROOT_DIR@/share/geopixeldesktop/images/ico\\\\geopixel-logo.ico\"")
+  
+  
+  set(CPACK_RESOURCE_FILE_README @GEOPIXELDESKTOP_ABSOLUTE_ROOT_DIR@/build/cmake/GENERAL-README)
+
+  set(CPACK_PACKAGE_INSTALL_DIRECTORY "Geopixel Desktop @GEOPIXELDESKTOP_VERSION_STRING@")
+
+  set(CPACK_CREATE_DESKTOP_LINKS Geopixel Desktop)
+
+  set(CPACK_NSIS_PACKAGE_NAME "Geopixel Desktop")
+  set(CPACK_NSIS_DISPLAY_NAME "Geopixel Desktop version @GEOPIXELDESKTOP_VERSION_STRING@")
+
+  set(CPACK_NSIS_HELP_LINK "http://www.geopx.com.br/")
+  set(CPACK_NSIS_URL_INFO_ABOUT "http://www.geopx.com.br/produtos/")
+  set(CPACK_NSIS_CONTACT "desenvolvimento@geopx.com.br")
+  
+  set(bitName "(Win32)")
+  
+  if(CMAKE_CL_64) 
+    set(CPACK_NSIS_INSTALL_ROOT "$PROGRAMFILES64") 
+    set(CPACK_NSIS_PACKAGE_NAME "${CPACK_PACKAGE_INSTALL_DIRECTORY} (Win64)") 
+    set(bitName "(Win64)")
+  else() 
+    set(CPACK_NSIS_INSTALL_ROOT "$PROGRAMFILES") 
+    set(CPACK_NSIS_PACKAGE_NAME "${CPACK_PACKAGE_INSTALL_DIRECTORY}") 
+  endif() 
+
+  # To overwrite a previous installed version
+  set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY ${CPACK_PACKAGE_NAME}) 
+  
+  set(shortCutName "Geopixel Desktop @GEOPIXELDESKTOP_VERSION_STRING@ ${bitName}")
+
+  set(CPACK_PACKAGE_EXECUTABLES "Geopixel Desktop;${shortCutName}")
+  
+  set(CPACK_NSIS_CREATE_ICONS_EXTRA "
+  SetOutPath \"$INSTDIR\\bin\";
+  CreateShortCut \"$SMPROGRAMS\\$STARTMENU_FOLDER\\${shortCutName}.lnk\" \"$INSTDIR\\bin\\geopixeldesktop.exe\" \"\" \"$INSTDIR\\share\\geopixeldesktop\\images\\ico\\geopixel-logo.ico\";
+  CreateShortCut \"$DESKTOP\\${shortCutName}.lnk\" \"$INSTDIR\\bin\\geopixeldesktop.exe\" \"\" \"$INSTDIR\\share\\geopixeldesktop\\images\\ico\\geopixel-logo.ico\"")
+
+  list (APPEND CPACK_NSIS_DELETE_ICONS_EXTRA "
+  Delete \"$SMPROGRAMS\\$MUI_TEMP\\${shortCutName}.lnk\";
+  Delete \"$DESKTOP\\${shortCutName}.lnk\"")
+
+  list (APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS "
+  WriteRegExpandStr HKLM \"SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment\" \"TERRALIB_HOME\" \"$INSTDIR\\share\\terralib\";
+  SendMessage \${HWND_BROADCAST} \${WM_WININICHANGE} 0 \"STR:Environment\" /TIMEOUT=5000"
+  )
+  
+  set (CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS " 
+  DeleteRegValue HKLM \"SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment\" \"TERRALIB_HOME\";
+  SendMessage \${HWND_BROADCAST} \${WM_WININICHANGE} 0 \"STR:Environment\" /TIMEOUT=5000"
+  )
+  
+ # File types association:
+ list (APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS "
+   WriteRegStr HKCR \".geopx\" \"\" \"GeopixelDesktop.Project\"; #registering file extension
+   WriteRegStr HKCR \"GeopixelDesktop.Project\" \"\" \"GeopixelDesktop Project File\"; #registering extension desc
+   WriteRegStr HKCR \"GeopixelDesktop.Project\\DefaultIcon\" \"\" \"$INSTDIR\\share\\icons\\svg\\geopixel-icon.svg\"; #registering extension icon 
+   WriteRegStr HKCR \"GeopixelDesktop.Project\\shell\\open\\command\" \"\" '\"$INSTDIR\\bin\\geopixeldesktop.exe\" \"%1\"' #extension open command
+ ")
+  
+ list (APPEND CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS "
+   DeleteRegKey HKCR \".geopx\"; #removing extension register
+   DeleteRegKey HKCR \"GeopixelDesktop.Project\"; #removing file association register
+ ")
+ 
+endif()

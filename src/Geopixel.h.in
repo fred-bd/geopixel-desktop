@@ -1,0 +1,53 @@
+/*!
+  \file geopx-desktop/src/Geopixel.h
+
+  \brief System macros.
+*/
+
+#ifndef __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_H__
+#define __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_H__
+
+/*!
+  \def GEOPX_PORTAL_USER
+
+  \brief Geopixel Server Connection Info: User.
+ */
+#define GEOPX_PORTAL_USER "@GEOPIXEL_PORTAL_USER@"
+
+/*!
+  \def GEOPX_PORTAL_PASSWD
+
+  \brief Geopixel Server Connection Info: Passwd.
+ */
+#define GEOPX_PORTAL_PASSWD "@GEOPIXEL_PORTAL_PASSWD@"
+
+/*!
+  \def GEOPX_PORTAL_URL
+
+  \brief Geopixel Server Connection Info: URL.
+ */
+#define GEOPX_PORTAL_URL "@GEOPIXEL_PORTAL_URL@"
+
+/*!
+  \def GEOPX_PORTAL_PORT
+
+  \brief Geopixel Server Connection Info: Port.
+ */
+#define GEOPX_PORTAL_PORT "@GEOPIXEL_PORTAL_PORT@"
+
+/*!
+  \def GEOPX_PORTAL_DATABASE
+
+  \brief Geopixel Server Connection Info: Database.
+ */
+#define GEOPX_PORTAL_DATABASE "@GEOPIXEL_PORTAL_DATABASE@"
+
+/*!
+  \def GEOPX_PORTAL_ALIAS
+
+  \brief Geopixel Server Alias.
+ */
+#define GEOPX_PORTAL_ALIAS "@GEOPIXEL_PORTAL_ALIAS@"
+
+
+#endif  // __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_H__

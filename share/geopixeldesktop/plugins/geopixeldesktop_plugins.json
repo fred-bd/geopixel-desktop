@@ -1,0 +1,14 @@
+{"plugins":[
+	{"plugin":"te.da.gdal"},
+	{"plugin":"te.da.ogr"},
+	{"plugin":"te.da.pgis"},
+	{"plugin":"te.qt.attributefill"},
+	{"plugin":"te.qt.datasource.gdal"},
+	{"plugin":"te.qt.datasource.ogr"},
+	{"plugin":"te.qt.datasource.pgis"},
+	{"plugin":"te.qt.layout"},
+	{"plugin":"te.qt.mnt"},
+	{"plugin":"te.qt.rp"},
+	{"plugin":"te.qt.sa"},
+	{"plugin":"te.qt.vp"}
+]}

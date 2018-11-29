@@ -1,0 +1,55 @@
+/*!
+  \file geopx-desktop/src/GeopixelDesktop_Version.h
+
+  \brief System versioning macros.
+*/
+
+#ifndef __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_VERSION_H__
+#define __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_VERSION_H__
+
+/*!
+  \def GEOPIXELDESKTOP_VERSION_MAJOR
+
+  \brief Major version of GeopixelDesktop (or version).
+ */
+#define GEOPIXELDESKTOP_VERSION_MAJOR @GEOPIXELDESKTOP_VERSION_MAJOR@
+
+/*!
+  \def GEOPIXELDESKTOP_VERSION_MINOR
+
+  \brief Minor version of GeopixelDesktop (or revision). 
+ */
+#define GEOPIXELDESKTOP_VERSION_MINOR @GEOPIXELDESKTOP_VERSION_MINOR@
+
+/*!
+  \def GEOPIXELDESKTOP_VERSION_PATCH
+
+  \brief Patched version of GeopixelDesktop (or patch).
+ */
+#define GEOPIXELDESKTOP_VERSION_PATCH @GEOPIXELDESKTOP_VERSION_PATCH@
+
+/*!
+  \def GEOPIXELDESKTOP_VERSION_STATUS
+
+  \brief
+ */
+#define GEOPIXELDESKTOP_VERSION_STATUS "@GEOPIXELDESKTOP_VERSION_STATUS@"
+
+/*!
+  \def GEOPIXELDESKTOP_VERSION_STRING
+
+  \brief This flag is used for versioning the GeopixelDesktop code. If you have plugins and other tools
+         that must check the GeopixelDesktop version, you can test against this string.
+ */
+#define GEOPIXELDESKTOP_VERSION_STRING "@GEOPIXELDESKTOP_VERSION_STRING@"
+
+/*!
+  \def GEOPIXELDESKTOP_VERSION
+
+  \brief This flag is used for versioning the GeopixelDesktop code. If you have plugins and other tools
+         that must check the GeopixelDesktop version, you can test against this number.
+ */
+#define GEOPIXELDESKTOP_VERSION @GEOPIXELDESKTOP_VERSION@
+
+
+#endif  // __GEOPXDESKTOP_INTERNAL_GEOPXDESKTOP_VERSION_H__
